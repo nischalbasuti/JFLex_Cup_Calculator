@@ -1,0 +1,29 @@
+/* ----------------------User code--------------------*/
+package src;
+import java_cup.runtime.*; 
+   
+/* ------------Grammar symbol declarations----------- */
+   
+terminal                PLUS, MINUS, TIMES, DIVIDE, LPAR, RPAR;
+terminal Integer        NUMBER;
+non terminal            program;
+non terminal Integer    expr, term, fact, div, ggg;
+
+   
+/* ------------Grammar rules----------- */
+
+program ::=   expr:e {: System.out.println("Postfix Evaluation result = " + e); RESULT = e;:};
+   
+   
+expr    ::=   expr:e0 expr:e1 PLUS 
+                {: RESULT = e0 + e1; :};
+expr    ::=   expr:e0 expr:e1 MINUS 
+                {: RESULT = e0 - e1; :};
+expr    ::=   expr:e0 expr:e1 TIMES 
+                {: RESULT = e0 * e1; :};
+expr    ::=   expr:e0 expr:e1 DIVIDE 
+                {: RESULT = e0 / e1; :};
+expr    ::=   LPAR expr:e RPAR
+                {: RESULT = e; :}
+            | NUMBER:n
+                {: RESULT = n; :};

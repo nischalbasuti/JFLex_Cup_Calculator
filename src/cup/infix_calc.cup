@@ -1,0 +1,42 @@
+/* ----------------------User code--------------------*/
+package src;
+import java_cup.runtime.*; 
+   
+/* ------------Grammar symbol declarations----------- */
+   
+terminal                PLUS, MINUS, TIMES, DIVIDE, LPAR, RPAR;
+terminal Float        NUMBER;
+non terminal            program;
+non terminal Float    expr, term, fact, div, ggg;
+
+   
+/* ------------Grammar rules----------- */
+
+program ::=   expr:e {: System.out.println("Infix Evaluation result = " + e); RESULT = e; :};
+   
+expr    ::=   expr:e PLUS term:t
+                {: RESULT = e + t; :}
+            | term:t
+                {: RESULT = t; :};
+
+
+term    ::=   term:t MINUS fact:f
+                {: RESULT = t - f; :}
+            | fact:f
+                {: RESULT = f; :};
+
+
+fact    ::=   fact:f TIMES div:d
+                {: RESULT = f * d; :}
+            | div:d
+                {: RESULT = d; :};
+
+div    ::=    div:d DIVIDE ggg:g
+                {: RESULT = d / g; :}
+            | ggg:n
+                {: RESULT = n; :};
+
+ggg    ::=    LPAR expr:e RPAR
+                {: RESULT = e; :}
+            | NUMBER:n
+                {: RESULT = n; :};
