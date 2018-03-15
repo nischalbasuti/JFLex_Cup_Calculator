@@ -58,21 +58,18 @@
     <cup srcfile="${cup}/infix_calc.cup"
          destdir="${java}"
          parser="infix_parser"
-force="true"
     />
   </target>
   <target name="cupPostfix" depends = "cupInfix">
     <cup srcfile="${cup}/postfix_calc.cup"
          destdir="${java}"
          parser="postfix_parser"
-force="true"
     />
   </target>
   <target name="cupPrefix" depends = "cupPostfix">
     <cup srcfile="${cup}/prefix_calc.cup"
          destdir="${java}"
          parser="prefix_parser"
-         force="true"
     />
   </target>
 

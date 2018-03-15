@@ -15,14 +15,14 @@ non terminal Float    expr;
 program ::=   expr:e {: System.out.println("Prefix Evaluation result = " + e); RESULT = e; :};
    
 expr    ::=   PLUS expr:e0 expr:e1
-                {: RESULT = e0 + e1; :};
-expr    ::=   MINUS expr:e0 expr:e1
-                {: RESULT = e0 - e1; :};
-expr    ::=   TIMES expr:e0 expr:e1
-                {: RESULT = e0 * e1; :};
-expr    ::=   DIVIDE expr:e0 expr:e1
-                {: RESULT = e0 / e1; :};
-expr    ::=   LPAR expr:e RPAR
+                {: RESULT = e0 + e1; :}
+            |MINUS expr:e0 expr:e1
+                {: RESULT = e0 - e1; :}
+            | TIMES expr:e0 expr:e1
+                {: RESULT = e0 * e1; :}
+            | DIVIDE expr:e0 expr:e1
+                {: RESULT = e0 / e1; :}
+            | LPAR expr:e RPAR
                 {: RESULT = e; :}
             | NUMBER:n
                 {: RESULT = n; :};

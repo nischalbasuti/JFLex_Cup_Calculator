@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/cup/prefix_calc.cup</url>
+            <bookmark id="1">
+                <name/>
+                <line>27</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/cup/postfix_calc.cup</file>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/cup/prefix_calc.cup</file>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/src/CalculatorJFrame.java</file>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/src/Main.java</file>
-            <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/flex/calc.flex</file>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/cup/infix_calc.cup</file>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/src/build.xml</file>
             <file>file:/home/nischal/NetBeansProjects/PLC%20Assignment/src/src/sample.inp</file>
