@@ -31,7 +31,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -97,7 +97,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="buttonSpace" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="inputTextField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="inputTextField" alignment="1" min="-2" pref="246" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>

@@ -218,7 +218,7 @@ public class CalculatorJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +268,7 @@ public class CalculatorJFrame extends javax.swing.JFrame {
                         .addComponent(buttonClear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonSpace))
-                    .addComponent(inputTextField))
+                    .addComponent(inputTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -422,10 +422,12 @@ public class CalculatorJFrame extends javax.swing.JFrame {
 
     private void buttonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEqualsActionPerformed
         // TODO add your handling code here:
+        input += inputTextField.getText(); // incase text is input from keyboard
         m = new Main(input);
         System.out.println(input);
         input = m.parse(this.mNotation);
         inputTextField.setText(input);
+        input = "";
     }//GEN-LAST:event_buttonEqualsActionPerformed
 
     private void notationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notationComboBoxActionPerformed

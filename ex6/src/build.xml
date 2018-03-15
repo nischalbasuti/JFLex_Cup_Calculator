@@ -6,8 +6,8 @@
   <property name="java"    location="java"    />
   <property name="classes" location="classes" />
   <property name="dist"    location="dist"    />
-  <property name="lib"     location="../lib"  />
-  <property name="bin"     location="../bin"  />
+  <property name="lib"     location="../lib"     />
+  <property name="bin"     location="../bin"     />
   <property environment="env" />
 
   <!-- We rely on CUP-10k-TUM, JFlex 1.3.5 and Classgen 1.5pre -->
@@ -54,31 +54,25 @@
     <mkdir dir="${dist}"/>
   </target>
 
-  <target name="cupInfix" depends = "init">
-    <cup srcfile="${cup}/infix_calc.cup"
+  <target name="cup" depends = "init">
+    <cup srcfile="${cup}/ycalc.cup"
          destdir="${java}"
-         parser="infix_parser"
-force="true"
-    />
-  </target>
-  <target name="cupPostfix" depends = "cupInfix">
-    <cup srcfile="${cup}/postfix_calc.cup"
-         destdir="${java}"
-         parser="postfix_parser"
-force="true"
-    />
-  </target>
-  <target name="cupPrefix" depends = "cupPostfix">
-    <cup srcfile="${cup}/prefix_calc.cup"
-         destdir="${java}"
-         parser="prefix_parser"
-         force="true"
     />
   </target>
 
-  <target name="jflex" depends="cupPrefix">
-    <jflex file="${flex}/calc.flex" destdir="${java}" />
+
+  <target name="jflex" depends="cup">
+    <jflex file="${flex}/lcalc.flex" destdir="${java}" />
   </target>
+
+ 
+
+  <target name="compile" depends="copy_src">
+    <javac srcdir= "${src}" destdir="${classes}" debug="on" includeantruntime="false">
+      <classpath refid="libraries" />
+    </javac>
+  </target>
+
 
   <target name="copy_src" depends="jflex">
    <copy todir="${src}">
@@ -87,25 +81,17 @@ force="true"
    <delete dir="${java}" />
   </target>
 
-  <target name="compile" depends="copy_src">
-    <javac srcdir= "${src}" destdir="${classes}" debug="on" includeantruntime="false">
-      <classpath refid="libraries" />
-    </javac>
-  </target>
 
   <target name="dist" depends="compile">
     <jar jarfile="${dist}/parser.jar" basedir="${classes}">
      <manifest>
-       <!--
-         <attribute name="Main-Class" value="src.CalculatorJFrame" />
-       -->
        <attribute name="Main-Class" value="src.Main" />
        <attribute name="Class-Path" value="java-cup-11a-runtime.jar" />
      </manifest>
     </jar>
    <copy todir="${dist}">
      <fileset dir="${lib}" includes="**/**.jar"/>
-   </copy>
+   </copy>  
 
   </target>
 
@@ -122,8 +108,5 @@ force="true"
     <delete file="${src}/sym.java" />
     <delete file="${src}/Lexer.java" />
     <delete file="${src}/parser.java" />
-    <delete file="${src}/infix_parser.java" />
-    <delete file="${src}/prefix_parser.java" />
-    <delete file="${src}/postfix_parser.java" />
   </target>
 </project>
