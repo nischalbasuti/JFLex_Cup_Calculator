@@ -312,117 +312,104 @@ public class CalculatorJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addText(String text) {
+        inputTextField.setText(inputTextField.getText() + text);
+    }
+    private void addText(int text) {
+        inputTextField.setText(inputTextField.getText() + text);
+    }
     private void inputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputTextFieldActionPerformed
 
     private void buttonTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTwoActionPerformed
         // TODO add your handling code here:
-        input += "2";
-        inputTextField.setText(input);
+        addText(2);
     }//GEN-LAST:event_buttonTwoActionPerformed
 
     private void buttonZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonZeroActionPerformed
         // TODO add your handling code here:
-        if(input.length() > 0){
-            input += "0";
-        }
-        inputTextField.setText(input);
+        addText(0);
     }//GEN-LAST:event_buttonZeroActionPerformed
 
     private void buttonOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOneActionPerformed
         // TODO add your handling code here:
-        input += "1";
-        inputTextField.setText(input);
+        addText(1);
     }//GEN-LAST:event_buttonOneActionPerformed
 
     private void buttonThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonThreeActionPerformed
         // TODO add your handling code here:
-        input += "3";
-        inputTextField.setText(input);
+        addText(3);
     }//GEN-LAST:event_buttonThreeActionPerformed
 
     private void buttonFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFourActionPerformed
         // TODO add your handling code here:
-        input += "4";
-        inputTextField.setText(input);
+        addText(4);
     }//GEN-LAST:event_buttonFourActionPerformed
 
     private void buttonFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFiveActionPerformed
         // TODO add your handling code here:
-        input += "5";
-        inputTextField.setText(input);
+        addText(5);
     }//GEN-LAST:event_buttonFiveActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
-        input += "6";
-        inputTextField.setText(input);
+        addText(6);
     }//GEN-LAST:event_button6ActionPerformed
 
     private void buttonSevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSevenActionPerformed
         // TODO add your handling code here:
-        input += "7";
-        inputTextField.setText(input);
+        addText(7);
     }//GEN-LAST:event_buttonSevenActionPerformed
 
     private void buttonEightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEightActionPerformed
         // TODO add your handling code here:
-        input += "8";
-        inputTextField.setText(input);
+        addText(8);
     }//GEN-LAST:event_buttonEightActionPerformed
 
     private void buttonNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNineActionPerformed
         // TODO add your handling code here:
-        input += "9";
-        inputTextField.setText(input);
+        addText(9);
     }//GEN-LAST:event_buttonNineActionPerformed
 
     private void buttonDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDotActionPerformed
         // TODO add your handling code here:
-        input += ".";
-        inputTextField.setText(input);
+        addText(".");
     }//GEN-LAST:event_buttonDotActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        input += "/";
-        inputTextField.setText(input);
+        addText("/");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        input += "*";
-        inputTextField.setText(input);
+        addText("*");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        input += "+";
-        inputTextField.setText(input);
+        addText("+");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        input += "-";
-        inputTextField.setText(input);
+        addText("-");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        input += "(";
-        inputTextField.setText(input);
+        addText("(");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        input += ")";
-        inputTextField.setText(input);
+        addText(")");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void buttonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEqualsActionPerformed
         // TODO add your handling code here:
-        input += inputTextField.getText(); // incase text is input from keyboard
+        input = inputTextField.getText();
         m = new Main(input);
         System.out.println(input);
         input = m.parse(this.mNotation);
