@@ -5,82 +5,28 @@ import java.util.Scanner;
 
 
 public class Main {
-    final int PREFIX_NOTATION = 0;
-    final int INFIX_NOTATION  = 1;
-    final int POSTFIX_NOTATION = 2;
-
-    static boolean do_debug_parse = false;
-
-    // Store input string here
-    private Reader mReader;
-
-    private int notation = PREFIX_NOTATION;
-
-    private String userInput() {
-        // TODO: refactor this function to take input from a gui calculator
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter expression: ");
-        String input = scanner.next();
-        return input;
-    }
-
-    Main (String argv[]) {
+    private void userInput() {
         CalculatorJFrame jframe = new CalculatorJFrame();
         jframe.setVisible(true);
-        
+    }
+
+    // this constructor is only used when it is constructed by itself
+    // usually this is from the main() method.
+    private Main (String argv[]) {
         if(argv.length == 0) {
-            //if no input file is provided, take input from user
-            mReader = new StringReader(userInput());
+            // if no input file is provided, take input from user 
+            userInput();
         } else {
-            //take file input
+            // take file input
             try {
-                mReader = new FileReader(argv[0]);
+                Reader reader = new FileReader(argv[0]);
+                Calculator calc = new Calculator(reader);
+                calc.parse(Calculator.PREFIX_NOTATION);
             } catch(FileNotFoundException e) {
                 e.printStackTrace();
-                return;
+                System.err.println("Couldn't find file '"+argv[0]+"'!");
             }
         }
-
-        /* Start the parser */
-        parse();
-
-    }
-    
-    Main (String input) {
-        mReader = new StringReader(input);
-    }
-    
-    public String parse(int notation) {
-        this.notation = notation;
-        return parse();
-    }
-    
-    private String parse() {
-        Object result = new Object();
-        System.out.println("Notation: "+this.notation);
-        try {
-            switch(this.notation) {
-                case 0:
-                    System.out.println("infix");
-                    infix_parser p0 = new infix_parser(new Lexer(mReader));
-                    result = p0.parse().value;
-                    break;
-                case 1:
-                    System.out.println("prefix");
-                    prefix_parser p1 = new prefix_parser(new Lexer(mReader));
-                    result = p1.parse().value;
-                    break;
-                case 2:
-                    System.out.println("postfix");
-                    postfix_parser p2 = new postfix_parser(new Lexer(mReader));
-                    result = p2.parse().value;
-                    break;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return result.toString();
     }
 
     static public void main(String argv[]) {

@@ -1,6 +1,7 @@
 *.java
 *.class
 !*CalculatorJFrame.java
+!*Calculator.java
 !*Main.java
 
 

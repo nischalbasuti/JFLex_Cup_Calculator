@@ -107,9 +107,7 @@
   </target>
 
   <target name="run" depends="dist">
-    <java jar="${dist}/parser.jar" fork="true">
-      <arg value="${src}/sample.inp" />
-    </java>
+    <java jar="${dist}/parser.jar" fork="true"/>
   </target>
 
   <target name="clean">

@@ -410,9 +410,9 @@ public class CalculatorJFrame extends javax.swing.JFrame {
     private void buttonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEqualsActionPerformed
         // TODO add your handling code here:
         input = inputTextField.getText();
-        m = new Main(input);
+        Calculator calc = new Calculator(input);
         System.out.println(input);
-        input = m.parse(this.mNotation);
+        input = calc.parse(this.mNotation);
         inputTextField.setText(input);
         input = "";
     }//GEN-LAST:event_buttonEqualsActionPerformed
@@ -422,13 +422,13 @@ public class CalculatorJFrame extends javax.swing.JFrame {
         //this.mNotation = notationComboBox.getSelectedIndex();
         switch(notationComboBox.getSelectedItem().toString()){
             case "infix":
-                this.mNotation = 0;
+                this.mNotation = Calculator.INFIX_NOTATION;
                 break;
             case "prefix":
-                this.mNotation = 1;
+                this.mNotation = Calculator.PREFIX_NOTATION;
                 break;
             case "postfix":
-                this.mNotation = 2;
+                this.mNotation = Calculator.POSTFIX_NOTATION;
                 break;
         }
         System.out.println(this.mNotation + notationComboBox.getSelectedItem().toString());
